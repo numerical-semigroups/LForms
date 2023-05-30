@@ -1,0 +1,61 @@
+% Plane partition
+% Author: Jang Soo Kim
+\documentclass[class=minimal,border=0pt]{standalone}
+\usepackage{tikz}
+\usepackage{delimtxt}
+\usepackage{amsmath}
+%\setlength\PreviewBorder{1pt}
+% Three counters
+\newcounter{x}
+\newcounter{y}
+\newcounter{z}
+
+% The angles of x,y,z-axes
+\newcommand\xaxis{210}
+\newcommand\yaxis{-30}
+\newcommand\zaxis{90}
+
+% The top side of a cube
+\newcommand\topside[4]{
+  \fill[fill=black!10, draw=black,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (30:1) -- (0,1) --(150:1)--(0,0);
+%xsalnt=-1.1,yslant=0.4
+ \node[shift={(\xaxis:#1)},shift={(\yaxis:#2)},  shift={(\zaxis:#3)},style={xslant=-1.1,yslant=.4}] at (.0,.5) {#4};
+}
+
+% The left side of a cube
+%opacity=.7
+\newcommand\leftside[4]{
+  \fill[fill=black!20,opacity=1., draw=black,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (0,-1) -- (210:1) --(150:1)--(0,0);
+
+  \node[shift={(\xaxis:#1)},shift={(\yaxis:#2)},  shift={(\zaxis:#3)},style={yslant=-0.6}] at (-.4,-.3) {#4}; 
+  
+}
+
+% The right side of a cube
+%opacity=.5
+\newcommand\rightside[4]{
+  \fill[fill=black!30,opacity=1., draw=black,shift={(\xaxis:#1)},shift={(\yaxis:#2)},
+  shift={(\zaxis:#3)}] (0,0) -- (30:1) -- (-30:1) --(0,-1)--(0,0);
+  \node[shift={(\xaxis:#1)},shift={(\yaxis:#2)},    shift={(\zaxis:#3)},style={yslant=0.6}] at (.4,-.3) {#4}; 
+}
+
+% The cube 
+\newcommand\cube[4]{
+  \topside{#1}{#2}{#3}{#4} \leftside{#1}{#2}{#3}{#4} \rightside{#1}{#2}{#3}{#4}
+}
+
+
+\begin{document} 
+
+%Ap\'ery del 7 en $\langle 7,8,9,13\rangle$
+
+\begin{tikzpicture}[every node/.style={scale=.5},scale=.5]
+\Fields{\xx \yy \zz \value}
+\DelimRead{prova.dat}{%
+\cube{\xx}{\yy}{\zz}{\textsf{\value}}
+}
+\end{tikzpicture}
+
+\end{document} 
