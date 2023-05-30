@@ -2,7 +2,7 @@ FROM gapsystem/gap-docker
 
 MAINTAINER Alexander Konovalov <alexander.konovalov@st-andrews.ac.uk>
 
-RUN tlmgr install standalone
+RUN tlmgr init-usertree && tlmgr install standalone
 
 RUN apt update && apt install -y pdf2svg
 
