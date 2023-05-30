@@ -4,7 +4,7 @@ MAINTAINER Alexander Konovalov <alexander.konovalov@st-andrews.ac.uk>
 
 COPY --chown=1000:1000 . $HOME
 
-RUN apt-get update && apt-get install -y pdf2svg
+RUN sudo apt-get update && sudo apt-get install -y pdf2svg
 
 USER gap
 
