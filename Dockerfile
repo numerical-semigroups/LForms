@@ -4,7 +4,7 @@ MAINTAINER Alexander Konovalov <alexander.konovalov@st-andrews.ac.uk>
 
 RUN tlmgr install standalone
 
-RUN apt-get update && apt-get install -y pdf2svg
+RUN apt update && apt install -y pdf2svg
 
 COPY --chown=1000:1000 . $HOME
 
