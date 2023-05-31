@@ -1,6 +1,6 @@
-# LForms
+# L-Shapes
 
-An example on how to display Lshapes of numerical semigroups.
+An example on how to display L-shapes of numerical semigroups.
 
 The notebook [LForms](https://github.com/numerical-semigroups/LForms/blob/main/Lforms.ipynb) shows two different methods. 
 
